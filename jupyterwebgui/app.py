@@ -87,10 +87,6 @@ def handle_execute_cell(data):
     code = "\n".join(code.split('\n')[:-1]) + f"\ndisplay({last_line})"
     msg_id = kernel_client.execute(code)
     logger.info(f"[{session_id}] Done executing code.")
-    locals_code_str = """'\\n'.join([f'{_k}: {_v}' for _k, _v in locals().items() if isinstance(_v, (list, dict, int, str, bool, float, tuple, set)) and not _k.startswith('_') and not _k in ['Out', 'In']])"""
-    locals_code_str = "display({'locals_display': " + locals_code_str + "})"
-    logger.info(f"[{session_id}] Executing locals code: {locals_code_str}")
-    _ = kernel_client.execute(locals_code_str)
 
 def kernel_message_listener(session_id, stop_flag):
     """Background thread to listen for kernel messages."""
@@ -133,11 +129,6 @@ def kernel_message_listener(session_id, stop_flag):
                             cnt = data['text/html']
                         elif "text/plain" in data:
                             cnt = data['text/plain']
-                            if 'locals_display' in cnt:
-                                cnt = cnt.replace("{'locals_display': ", "")[:-1][1:-1]
-                                socketio.emit('locals', {'output': cnt}, to=session_id)
-                                logger.info(f"[{session_id}] locals: {cnt}")
-                                return
                         if "image/png" in data:
                             cnt = data['image/png']
                             socketio.emit('image', {'output': cnt}, to=session_id)

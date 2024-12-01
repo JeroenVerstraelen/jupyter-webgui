@@ -20,10 +20,6 @@
       <h2>Cells</h2>
       <div style="display: flex;">
           <div id="cellsContainer" style="flex: 1;"></div>
-          <div style="flex: 0 0 30%; padding-left: 20px;" class="cell">
-              <h2>Local Variables</h2>
-              <div id="localVariablesContainer"></div>
-          </div>
       </div>
 
       <h2>Output</h2>
@@ -68,13 +64,6 @@
             } else {
                 outputContainer.innerHTML += data.output.replace(/\n/g, '<br>');
             }
-        });
-
-        socket.on('locals', (data) => {
-            console.log('Received local variables:', data);
-            const localVariablesContainer = document.getElementById('localVariablesContainer');
-            // data.output is a list of tuples the json is not valid: e.g.""{'test': {'A': 1, 'B': 2}\n""
-            localVariablesContainer.innerHTML = data.output.replace(/\\n/g, '<br>');
         });
 
         async function loadNotebook() {
