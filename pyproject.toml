@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jupyter_webgui"
+name = "jupyter_webui"
 version = "0.1.0"
 description = "A simple web interface for Jupyter notebooks"
 authors = [{name = "Jeroen Verstraelen", email = "verstraelenjeroen@gmail.com"}]
@@ -11,4 +11,4 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["jupyterwebgui"]
+packages = ["jupyterwebui"]

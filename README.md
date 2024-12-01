@@ -1,5 +1,5 @@
-# jupyter-webgui
-A simple web GUI for Jupyter Notebook files.
+# jupyter-webui
+A simple web UI for Jupyter Notebook files.
 
 ## Features
 
@@ -10,7 +10,7 @@ A simple web GUI for Jupyter Notebook files.
 ## Installation
 1. Clone the repository:
     ```sh   
-    git clone https://github.com/yourusername/jupyter-webgui.git
+    git clone https://github.com/yourusername/jupyter-webui.git
     ```
     ```sh
     pip install -r requirements.txt
@@ -20,7 +20,7 @@ A simple web GUI for Jupyter Notebook files.
 
 1. Start the Flask application:
     ```sh
-    python jupyterwebgui/app.py
+    python jupyterwebui/app.py
     ```
 
 2. Open your web browser and navigate to `http://localhost:5000`.
