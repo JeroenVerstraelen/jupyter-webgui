@@ -13,9 +13,6 @@ A simple web GUI for Jupyter Notebook files.
     git clone https://github.com/yourusername/jupyter-webgui.git
     ```
     ```sh
-    cd jupyter-webgui
-    ```
-    ```sh
     pip install -r requirements.txt
     ```
 
